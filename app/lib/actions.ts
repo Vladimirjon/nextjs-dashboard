@@ -73,10 +73,11 @@ try {
 }
 
 export async function deleteInvoice(id: string) {
-    await sql`
-      DELETE FROM invoices
-      WHERE id = ${id}
-    `;
+  // throw new Error('Failed to Delete Invoice'); /*simulate error */
+   await sql`
+     DELETE FROM invoices
+     WHERE id = ${id}
+   `;
 
-    revalidatePath('/dashboard/invoices');
+   revalidatePath('/dashboard/invoices');
 }
